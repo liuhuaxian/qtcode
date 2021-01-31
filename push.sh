@@ -8,6 +8,6 @@ then
 fi
 rm *MinGW_32bit-Debug -fr
 git add *
-git commit -m "`date`"
+git commit -m "`date` push $1"
 git push lhx main
 
