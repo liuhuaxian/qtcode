@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QWidget* w = new QWidget(NULL, Qt::WindowCloseButtonHint);
+    QWidget* w = new QWidget(NULL, Qt::WindowCloseButtonHint);//窗口只显示关闭选项
     QLineEdit* le = new QLineEdit(w);
     QPushButton* button[20] = {0};
     const char* btnText[20] =
