@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     b1.resize(100, 50);   // …Ë÷√¥Û–° width = 100, height = 25
 
 
-    w.resize(220, 100);
+    //w.resize(220, 100);
     w.move(120, 120);
     w.show();
 
