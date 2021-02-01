@@ -3,6 +3,7 @@
 
 #include <QString>
 
+//接口类
 class ICalculator
 {
 public:

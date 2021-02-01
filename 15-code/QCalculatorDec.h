@@ -7,6 +7,7 @@
 
 #include "ICalculator.h"
 
+//实际业务代码类
 class QCalculatorDec : public ICalculator
 {
 protected:
