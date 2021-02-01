@@ -155,9 +155,23 @@ void Widget::ErrorMsgBtn_Clicked()
 }
 void Widget::ColorMsgBtn_Clicked()
 {
-    qDebug() << "ColorMsgBtn_Clicked()";
     QColorDialog dlg(this);
-    dlg.exec();
+
+    dlg.setWindowTitle("Color Editor");
+    dlg.setCurrentColor(QColor(100, 111, 222));
+
+    if( dlg.exec() == QColorDialog::Accepted )
+    {
+        QColor color = dlg.selectedColor();
+
+        qDebug() << color;
+        qDebug() << color.red();
+        qDebug() << color.green();
+        qDebug() << color.blue();
+        qDebug() << color.hue();
+        qDebug() << color.saturation();
+        qDebug() << color.value();
+    }
 }
 void Widget::FontMsgBtn_Clicked()
 {
@@ -173,11 +187,16 @@ void Widget::FontMsgBtn_Clicked()
 
 void Widget::InputMsgBtn_Clicked()
 {
-    qDebug() << "InputMsgBtn_Clicked()";
-    QInputDialog dlg;
-    if (dlg.exec() == QFontDialog::Accepted )
+    QInputDialog dlg(this);
+
+    dlg.setWindowTitle("Input Test");
+    dlg.setLabelText("Please input an integer:");
+    dlg.setInputMode(QInputDialog::TextInput);
+
+
+    if( dlg.exec() == QInputDialog::Accepted )
     {
-        qDebug() << "InputMsgBtn_Clicked()";
+        qDebug() << dlg.textValue();
     }
 }
 
@@ -198,8 +217,16 @@ void Widget::WizardMsgBtn_Clicked()
 
 void Widget::ProgressMsgBtn_Clicked()
 {
-    qDebug() << "void Widget::ProgressMsgBtn_Clicked()";
-    QProgressDialog dlg;
+    QProgressDialog dlg(this);
+
+    dlg.setWindowTitle("Updating...");
+    dlg.setLabelText("Downloading update from server...");
+    dlg.setMinimum(0);
+    dlg.setMaximum(100);
+    dlg.setValue(35);
+
+    // create a new thread
+
     dlg.exec();
 }
 
