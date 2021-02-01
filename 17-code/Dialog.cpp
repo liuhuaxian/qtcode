@@ -30,9 +30,9 @@ void Dialog::ModalBtn_Clicked()
 
     QDialog dialog(this);
 
-    dialog.exec();
+    dialog.exec(); //阻塞执行流，同时也阻止代码继续往下执行，除非用户在该窗口上执行了点击操作。
 
-    // done(Accepted);
+    //done(Accepted);  //那个对话框类实体调用done则关闭那个对话框。
 
     qDebug() << "ModalBtn_Clicked() End";
 }
@@ -44,9 +44,9 @@ void Dialog::NormalBtn_Clicked()
     QDialog* dialog = new QDialog(this);
 
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->show();
+    dialog->show(); //不阻止对父窗口的操作，同时执行流也正常往下走
 
-    // done(Rejected);
+   // done(Rejected);
 
     qDebug() << "NormalBtn_Clicked() End";
 }
@@ -58,7 +58,7 @@ void Dialog::MixedBtn_Clicked()
     QDialog* dialog = new QDialog(this);
 
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->setModal(true);
+    dialog->setModal(true); //当前窗口阻止对父窗口的操作，但不阻塞代码执行流
     dialog->show();
 
     // done(100);
