@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT       += core gui
 
 TARGET = 18-1
 TEMPLATE = app

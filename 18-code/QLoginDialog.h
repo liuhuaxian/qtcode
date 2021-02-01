@@ -1,7 +1,7 @@
 #ifndef _QLOGINDIALOG_H_
 #define _QLOGINDIALOG_H_
 
-#include <QDialog>
+#include <QtGui/QDialog>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>

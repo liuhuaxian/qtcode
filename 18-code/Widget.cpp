@@ -16,7 +16,7 @@ void Widget::TestBtn_Clicked()
 {
     QLoginDialog dlg;
 
-    if( dlg.exec() == QDialog::Accepted ) //模态显示QLoginDialog对应的窗口
+    if( dlg.exec() == QDialog::Accepted )
     {
         qDebug() << "User: " + dlg.getUser();
         qDebug() << "Pwd: " + dlg.getPwd();

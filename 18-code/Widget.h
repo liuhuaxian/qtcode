@@ -1,7 +1,7 @@
 #ifndef _WIDGET_H_
 #define _WIDGET_H_
 
-#include <QWidget>
+#include <QtGui/QWidget>
 #include <QPushButton>
 
 class Widget : public QWidget

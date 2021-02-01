@@ -18,7 +18,7 @@ QLoginDialog::QLoginDialog(QWidget* parent) : QDialog(parent, Qt::WindowCloseBut
 
     PwdEdit.move(85, 65);
     PwdEdit.resize(180, 25);
-    PwdEdit.setEchoMode(QLineEdit::Password); //设置为密码模式
+    PwdEdit.setEchoMode(QLineEdit::Password);
 
     CancelBtn.setText("Cancel");
     CancelBtn.move(85, 110);
@@ -42,7 +42,7 @@ void QLoginDialog::LoginBtn_Clicked()
     m_user = UserEdit.text().trimmed();
     m_pwd = PwdEdit.text();
 
-    done(Accepted); //关闭QLoginDialog对话框
+    done(Accepted);
 
     qDebug() << "LoginBtn_Clicked() End";
 }
