@@ -1,11 +1,15 @@
 #!/bin/sh
 set -x
 cleanother(){
-RMOBJ="*.pro.user *.Debug *.Release Makefile .qmake.stash debug release"
-find . -type d -name "build*-Debug" | xargs rm -fr
-for obj in $RMOBJ
+RMOBJF="*.pro.user *.Debug *.Release Makefile .qmake.stash"
+RMOBJD="debug release build*-Debug"
+for file in $RMOBJ
 do
-	find . -type d -name "$obj" | xargs rm -fr 
+	find .-type f -name "$file" | xargs rm -fr 
+done
+for dir in $RMOBJ
+do
+	find .-type d -name "$dir" | xargs rm -fr 
 done
 }
 cleanother
