@@ -12,8 +12,8 @@ Widget::Widget(QWidget *parent) : QWidget(parent, Qt::WindowCloseButtonHint)
     layout->addRow("Name:", nameEdit);
     layout->addRow("Email:", mailEdit);
     layout->addRow("Address:", addrEdit);
-    layout->setRowWrapPolicy(QFormLayout::WrapLongRows);
-    //layout->setLabelAlignment(Qt::AlignRight);
+    layout->setRowWrapPolicy(QFormLayout::WrapLongRows);//设置表单是否换行
+    layout->setLabelAlignment(Qt::AlignRight); //设置表单对齐策略
     layout->setSpacing(10);
 
     setLayout(layout);
