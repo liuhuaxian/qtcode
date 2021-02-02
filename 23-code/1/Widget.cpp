@@ -71,6 +71,7 @@ void Widget::testHBoxLayout()
     TestBtn4.setMinimumSize(160, 30);
 
     layout->setSpacing(30);
+    //设置组件的比例因子
     layout->addWidget(&TestBtn1,1);
     layout->addWidget(&TestBtn2,2);
     layout->addWidget(&TestBtn3,1);

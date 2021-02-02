@@ -5,7 +5,7 @@ Widget::Widget(QWidget *parent) : QWidget(parent),
     TestBtn1(this), TestBtn2(this), TestBtn3(this), TestBtn4(this)
 {
     //testGridLayout1();
-    //testGridLayout2();
+    testGridLayout2();
 }
 
 void Widget::testGridLayout1()
@@ -62,6 +62,7 @@ void Widget::testGridLayout2()
     TestBtn4.setMinimumSize(160, 30);
 
     layout->setSpacing(10);
+    //btn1放在第0行第0列，站据2行1列的大小。
     layout->addWidget(&TestBtn1, 0, 0, 2, 1);
     layout->addWidget(&TestBtn2, 0, 1, 2, 1);
     layout->addWidget(&TestBtn3, 2, 0, 1, 2);
