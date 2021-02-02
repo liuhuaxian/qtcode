@@ -1,7 +1,7 @@
 #ifndef _MAINWINDOW_H_
 #define _MAINWINDOW_H_
 
-#include <QtGui/QMainWindow>
+#include <QMainWindow>
 #include <QKeySequence>
 #include <QMenuBar>
 #include <QToolBar>

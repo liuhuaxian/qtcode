@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include <QMenu>
+#include <QMenuBar>
 #include <QIcon>
 #include <QSize>
 
