@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     textEdit.resize(560, 130);
     textEdit.insertPlainText("QTextEdit");
     textEdit.insertPlainText("\n");
+    //可正常解析出图片
     textEdit.insertHtml("<img src=\"E:\\github\\qtcode\\30-code\\1\\D.T.png\" />");
 }
 

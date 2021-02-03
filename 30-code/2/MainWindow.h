@@ -1,7 +1,7 @@
 #ifndef _MAINWINDOW_H_
 #define _MAINWINDOW_H_
 
-#include <QtGui/QMainWindow>
+#include <QMainWindow>
 #include <QKeySequence>
 #include <QMenuBar>
 #include <QToolBar>
@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 private:
-    QPlainTextEdit mainEditor;
+    QPlainTextEdit mainEditor; //多行简单文本
     QLabel statusLbl;
 
     MainWindow();

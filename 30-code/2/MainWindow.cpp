@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include <QMenu>
+#include <QMenuBar>
 #include <QIcon>
 #include <QSize>
 #include <QStatusBar>
@@ -88,6 +88,7 @@ bool MainWindow::initStatusBar()
         label->setMinimumWidth(200);
         label->setAlignment(Qt::AlignCenter);
 
+        //设置永久悬停组件
         sb->addPermanentWidget(new QLabel());
         sb->addPermanentWidget(&statusLbl);
         sb->addPermanentWidget(label);
@@ -104,9 +105,9 @@ bool MainWindow::initMainEditor()
 {
     bool ret = true;
 
-    mainEditor.setParent(this);
+    mainEditor.setParent(this);//设置父组件
 
-    setCentralWidget(&mainEditor);
+    setCentralWidget(&mainEditor); //将mainEditor设置为MainWindow的中心组件
 
     return ret;
 }
