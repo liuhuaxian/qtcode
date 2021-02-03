@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include <QMenu>
+#include <QMenuBar>
 #include <QIcon>
 #include <QSize>
 #include <QStatusBar>
@@ -51,6 +51,7 @@ bool MainWindow::initMenuBar()
 bool MainWindow::initToolBar()
 {
     bool ret = true;
+    //在MainWindow上方创建一个名为“tool Bar”的toolbar
     QToolBar* tb = addToolBar("Tool Bar");
 
     tb->setIconSize(QSize(16, 16));
@@ -81,9 +82,9 @@ bool MainWindow::initStatusBar()
     if( label != NULL )
     {
         label->setMinimumWidth(200);
-        label->setAlignment(Qt::AlignCenter);
+        label->setAlignment(Qt::AlignCenter);//设置组件居中对齐
 
-        sb->addPermanentWidget(label);
+        sb->addPermanentWidget(label);//组件默认是在右边显示
     }
     else
     {
