@@ -48,8 +48,10 @@ bool MainWindow::initMenuBar()
 bool MainWindow::initToolBar()
 {
     bool ret = true;
+    //设置toolbar的名字
     QToolBar* tb = addToolBar("Tool Bar");
 
+    //设置放入toolbar组件中得action的图标尺寸
     tb->setIconSize(QSize(16, 16));
 
     ret = ret && initFileToolItem(tb);
@@ -354,6 +356,7 @@ bool MainWindow::initFileToolItem(QToolBar* tb)
     return ret;
 }
 
+//专用于menu中的组件的快捷键的设定。
 bool MainWindow::makeAction(QAction*& action, QString text, int key)
 {
     bool ret = true;
@@ -362,6 +365,7 @@ bool MainWindow::makeAction(QAction*& action, QString text, int key)
 
     if( action != NULL )
     {
+        //action动作对应的快捷键
         action->setShortcut(QKeySequence(key));
     }
     else
@@ -372,6 +376,7 @@ bool MainWindow::makeAction(QAction*& action, QString text, int key)
     return ret;
 }
 
+//重载版本的makeAction专用于toolbar中icon的设定。
 bool MainWindow::makeAction(QAction*& action, QString tip, QString icon)
 {
     bool ret = true;
@@ -380,7 +385,9 @@ bool MainWindow::makeAction(QAction*& action, QString tip, QString icon)
 
     if( action != NULL )
     {
+        //设置鼠标悬停时候的提示信息
         action->setToolTip(tip);
+        //设置动作对应得图标
         action->setIcon(QIcon(icon));
     }
     else
