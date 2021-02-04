@@ -11,12 +11,13 @@ void MainWindow::showErrorMessage(QString message)
 
     msg.setWindowTitle("Error");
     msg.setText(message);
-    msg.setIcon(QMessageBox::Critical);
+    msg.setIcon(QMessageBox::Critical);//设置代表消息的级别图标
     msg.setStandardButtons(QMessageBox::Ok);
 
     msg.exec();
 }
 
+//选择打开的文本，并以字串的方式返回
 QString MainWindow::showFileDialog(QFileDialog::AcceptMode mode, QString title)
 {
     QString ret = "";
@@ -28,7 +29,8 @@ QString MainWindow::showFileDialog(QFileDialog::AcceptMode mode, QString title)
 
     fd.setWindowTitle(title);
     fd.setAcceptMode(mode);
-    fd.setFilters(filters);
+    //fd.setFilters(filters);//qt5中不支持该函数
+    fd.setNameFilters(filters);
 
     if( mode == QFileDialog::AcceptOpen )
     {
@@ -37,6 +39,7 @@ QString MainWindow::showFileDialog(QFileDialog::AcceptMode mode, QString title)
 
     if( fd.exec() == QFileDialog::Accepted )
     {
+        //只返回一个文件名，及该文件编辑器只支持打开一个文件。
         ret = fd.selectedFiles()[0];
     }
 

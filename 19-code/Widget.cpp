@@ -202,10 +202,14 @@ void Widget::InputMsgBtn_Clicked()
 
 void Widget::MessageBtn_Clicked()
 {
-    qDebug() << "void Widget::MessageBtn_Clicked()";
-    QMessageBox dlg;
-    dlg.setText("this is messagebox");
-    dlg.exec();
+    QMessageBox msg(this);
+
+    msg.setWindowTitle("Error");
+    msg.setText("this is a messagebox");
+    msg.setIcon(QMessageBox::Warning);//设置代表消息的级别图标
+    msg.setStandardButtons(QMessageBox::Ok);
+
+    msg.exec();
 }
 
 void Widget::WizardMsgBtn_Clicked()
