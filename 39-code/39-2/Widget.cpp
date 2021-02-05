@@ -6,7 +6,7 @@
 Widget::Widget(QWidget *parent)
     : QWidget(parent), myLineEdit(this)
 {
-    myLineEdit.installEventFilter(this);
+    myLineEdit.installEventFilter(this);//给子组件安装事件过滤器
 }
 
 bool Widget::event(QEvent* e)
@@ -26,12 +26,15 @@ void Widget::keyPressEvent(QKeyEvent* e)
     QWidget::keyPressEvent(e);
 }
 
+
+//若事件过滤器返回真，则停止传递该事件，如果事件处理器返回假，则继续传统该事件给其父组件中继续处理。
 bool Widget::eventFilter(QObject* obj, QEvent* e)
 {
     bool ret = true;
 
     if( (obj == &myLineEdit) && (e->type() == QEvent::KeyPress) )
     {
+        qDebug() << e->type();
         qDebug() << "Widget::eventFilter";
 
         QKeyEvent* evt = dynamic_cast<QKeyEvent*>(e);
@@ -48,7 +51,8 @@ bool Widget::eventFilter(QObject* obj, QEvent* e)
         case Qt::Key_7:
         case Qt::Key_8:
         case Qt::Key_9:
-            ret = false;
+        case Qt::Key_Backspace:
+            ret = false; //以上按键才将这些事件传递给父组件，其它的组件全部忽略掉。
             break;
         default:
             break;
@@ -58,7 +62,6 @@ bool Widget::eventFilter(QObject* obj, QEvent* e)
     {
         ret = QWidget::eventFilter(obj, e);
     }
-
     return ret;
 }
 

@@ -1,7 +1,7 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include "MyLineEdit.h"
 
 class Widget : public QWidget

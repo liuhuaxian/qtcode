@@ -14,7 +14,6 @@ bool MyLineEdit::event(QEvent* e)
     {
         qDebug() << "MyLineEdit::event";
     }
-
     return QLineEdit::event(e);
 }
 
@@ -24,5 +23,9 @@ void MyLineEdit::keyPressEvent(QKeyEvent* e)
 
     QLineEdit::keyPressEvent(e);
 
-    // e->ignore();
+    //清除accept参数表示事件接收器不想要该事件。不需要的事件可能会传播到父小部件
+    e->accept();//此处不管时ignore还是accept怎样事件都会传递到父组件上。？？
+
+    //
+
 }

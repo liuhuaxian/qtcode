@@ -14,7 +14,6 @@ bool MyLineEdit::event(QEvent* e)
     {
         qDebug() << "MyLineEdit::event";
     }
-
     return QLineEdit::event(e);
 }
 
@@ -24,5 +23,5 @@ void MyLineEdit::keyPressEvent(QKeyEvent* e)
 
     QLineEdit::keyPressEvent(e);
 
-    // e->ignore();
+
 }
