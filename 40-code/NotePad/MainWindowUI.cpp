@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include <QMenu>
+#include <QMenuBar>
 #include <QIcon>
 #include <QSize>
 #include <QStatusBar>
@@ -32,6 +32,7 @@ MainWindow* MainWindow::NewInstance()
 bool MainWindow::construct()
 {
     bool ret = true;
+    setAcceptDrops(true);
 
     ret = ret && initMenuBar();
     ret = ret && initToolBar();
@@ -109,6 +110,7 @@ bool MainWindow::initStatusBar()
 bool MainWindow::initMainEditor()
 {
     bool ret = true;
+    mainEditor.setAcceptDrops(false);
 
     mainEditor.setParent(this);
 

@@ -1,7 +1,7 @@
 #ifndef _MAINWINDOW_H_
 #define _MAINWINDOW_H_
 
-#include <QtGui/QMainWindow>
+#include <QMainWindow>
 #include <QKeySequence>
 #include <QMenuBar>
 #include <QToolBar>
@@ -49,8 +49,9 @@ private:
     void openFileToEditor(QString path);
 protected:
     void closeEvent(QCloseEvent* e);
+    //添加将文件拖拽进主编辑器中读取其路径
     void dragEnterEvent(QDragEnterEvent* e);
-    void dropEvent(QDropEvent* e);
+    void dropEvent(QDropEvent* e);//主窗口的事件处理函数。
 private slots:
     void onFileNew();
     void onFileOpen();

@@ -11,6 +11,7 @@
 #include <QUrl>
 #include <QFileInfo>
 #include <QDebug>
+#include <QMimeData>
 
 void MainWindow::showErrorMessage(QString message)
 {
@@ -57,7 +58,7 @@ QString MainWindow::showFileDialog(QFileDialog::AcceptMode mode, QString title)
 
     fd.setWindowTitle(title);
     fd.setAcceptMode(mode);
-    fd.setFilters(filters);
+    fd.setNameFilters(filters);
 
     if( mode == QFileDialog::AcceptOpen )
     {
@@ -70,7 +71,7 @@ QString MainWindow::showFileDialog(QFileDialog::AcceptMode mode, QString title)
 
         if( mode == QFileDialog::AcceptSave )
         {
-            QString postfix = map[fd.selectedFilter()];
+            QString postfix = map[fd.selectedNameFilter()];
 
             if( (postfix != "*") && !ret.endsWith(postfix) )
             {
@@ -237,22 +238,27 @@ void MainWindow::closeEvent(QCloseEvent* e)
 
 void MainWindow::dragEnterEvent(QDragEnterEvent* e)
 {
+
     if( e->mimeData()->hasUrls() )
     {
+        qDebug() << "in dragEnterEvent";
         e->acceptProposedAction();
     }
     else
     {
-        e->ignore();
+        e->ignore();//让事件继续传递给父类
     }
 }
 
+
+
 void MainWindow::dropEvent(QDropEvent* e)
 {
+    qDebug() << "in dropEvent";
     if( e->mimeData()->hasUrls() )
     {
         QList<QUrl> list = e->mimeData()->urls();
-        QString path = list[0].toLocalFile();
+        QString path = list[0].toLocalFile();//只支持一个文件拖拽进主文本编辑框内
         QFileInfo fi(path);
 
         if( fi.isFile() )

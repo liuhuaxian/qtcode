@@ -8,12 +8,12 @@
 
 Widget::Widget(QWidget *parent) : QWidget(parent)
 {
-    setAcceptDrops(true);
+    setAcceptDrops(true);//使能拖拽事件
 }
 bool Widget::event(QEvent* e)
 {
-    qDebug() << "in event";
-    qDebug() << e->type();
+    //qDebug() << "in event";
+    //qDebug() << e->type();
     QWidget::event(e); //
 }
 
