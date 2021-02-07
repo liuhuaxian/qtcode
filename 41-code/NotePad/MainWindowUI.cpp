@@ -109,6 +109,8 @@ bool MainWindow::initStatusBar()
 bool MainWindow::initMainEditor()
 {
     bool ret = true;
+    mainEditor.setAcceptDrops(false);
+    setAcceptDrops(true);
 
     mainEditor.setParent(this);
 
@@ -217,7 +219,7 @@ bool MainWindow::initEditMenu(QMenuBar* mb)
         if( ret )
         {
             connect(action, SIGNAL(triggered()), &mainEditor, SLOT(redo()));
-            action->setEnabled(false);
+            action->setEnabled(false);//撤销动作默认是不可执行状态。
             menu->addAction(action);
         }
 

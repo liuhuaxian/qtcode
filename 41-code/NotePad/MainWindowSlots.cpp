@@ -243,6 +243,7 @@ void MainWindow::dragEnterEvent(QDragEnterEvent* e)
 {
     if( e->mimeData()->hasUrls() )
     {
+        //使能拖拽事件触发的动作，且设置为默认的动作copy
         e->acceptProposedAction();
     }
     else
@@ -279,6 +280,8 @@ void MainWindow::dropEvent(QDropEvent* e)
     }
 }
 
+
+//，通于maineditor的信号相关联，来维护界面状态维护。
 void MainWindow::onCopyAvailable(bool available)
 {
     findMenuBarAction("Copy")->setEnabled(available);
