@@ -19,6 +19,7 @@ private:
     QPushButton MessageBtn;
     QPushButton WizardMsgBtn;
     QPushButton ProgressMsgBtn;
+    QPushButton PrintMsgBtn;
 private slots:
     void SimpleMsgBtn_Clicked();
     void CustomMsgBtn_Clicked();
@@ -31,6 +32,7 @@ private slots:
     void MessageBtn_Clicked();
     void WizardMsgBtn_Clicked();
     void ProgressMsgBtn_Clicked();
+    void PrintMsgBtn_Clicked();
 public:
     Widget(QWidget *parent = 0);
     void show();
