@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT       += core gui widgets printsupport
 
 TARGET = 19-1
 TEMPLATE = app

@@ -10,11 +10,12 @@
 #include <QWizard>
 #include <QInputDialog>
 #include <QProgressDialog>
+#include <QPrintDialog>
 
 Widget::Widget(QWidget *parent) : QWidget(parent),
     SimpleMsgBtn(this), CustomMsgBtn(this), OpenFileBtn(this),
     SaveFileBtn(this), ErrorMsgBtn(this), ColorMsgBtn(this),FontMsgBtn(this),
-    InputMsgBtn(this), MessageBtn(this), WizardMsgBtn(this), ProgressMsgBtn(this)
+    InputMsgBtn(this), MessageBtn(this), WizardMsgBtn(this), ProgressMsgBtn(this),PrintMsgBtn(this)
 {
     SimpleMsgBtn.setText("Simple Message Dialog");
     SimpleMsgBtn.move(20, 20);
@@ -60,6 +61,11 @@ Widget::Widget(QWidget *parent) : QWidget(parent),
     ProgressMsgBtn.move(20,520);
     ProgressMsgBtn.resize(160,30);
 
+    PrintMsgBtn.setText("Print Selected Dialog");
+    PrintMsgBtn.move(20,570);
+    PrintMsgBtn.resize(160,30);
+
+
     //resize(200, 220);
     //setFixedSize(200, 220);
 
@@ -75,6 +81,7 @@ Widget::Widget(QWidget *parent) : QWidget(parent),
     connect(&MessageBtn, SIGNAL(clicked()), this, SLOT(MessageBtn_Clicked()));
     connect(&WizardMsgBtn, SIGNAL(clicked()), this, SLOT(WizardMsgBtn_Clicked()));
     connect(&ProgressMsgBtn, SIGNAL(clicked()), this, SLOT(ProgressMsgBtn_Clicked()));
+    connect(&PrintMsgBtn, SIGNAL(clicked()), this, SLOT(PrintMsgBtn_Clicked()));
 }
 
 void Widget::SimpleMsgBtn_Clicked()
@@ -232,6 +239,22 @@ void Widget::ProgressMsgBtn_Clicked()
     // create a new thread
 
     dlg.exec();
+}
+
+void Widget::PrintMsgBtn_Clicked()
+{
+    QPrintDialog dlg(this);
+
+    dlg.setWindowTitle("Print");
+
+    if( dlg.exec() == QPrintDialog::Accepted )
+    {
+        //QPrinter* p = dlg.printer();
+        //QPagedPaintDevice* a =new QPagedPaintDevice();
+
+        //QPrinter* p = dlg.printer();
+        //mainEditor.document()->print(reinterpret_cast<QPagedPaintDevice*>(p));
+    }
 }
 
 void Widget::show()
