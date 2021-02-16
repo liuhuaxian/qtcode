@@ -107,10 +107,13 @@ bool MainWindow::initStatusBar()
 }
 
 bool MainWindow::initMainEditor()
-{
+{    
     bool ret = true;
 
     mainEditor.setParent(this);
+
+    mainEditor.setAcceptDrops(false);
+    setAcceptDrops(true);
 
     connect(&mainEditor, SIGNAL(textChanged()), this, SLOT(onTextChanged()));
     connect(&mainEditor, SIGNAL(copyAvailable(bool)), this, SLOT(onCopyAvailable(bool)));

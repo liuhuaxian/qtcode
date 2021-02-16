@@ -239,17 +239,23 @@ void MainWindow::closeEvent(QCloseEvent* e)
     }
 }
 
+
 void MainWindow::dragEnterEvent(QDragEnterEvent* e)
 {
     if( e->mimeData()->hasUrls() )
     {
-        e->acceptProposedAction();
+        //qDebug() << e->proposedAction();
+        //默认的情况下是copyAction的动作，这些动作默认的情况下是不被接受的。
+        e->acceptProposedAction();//允许拖拽事件被窗口接受。
+        //e->setDropAction(Qt::MoveAction);
+        //qDebug() << e->proposedAction();
     }
     else
     {
         e->ignore();
     }
 }
+
 
 void MainWindow::dropEvent(QDropEvent* e)
 {
