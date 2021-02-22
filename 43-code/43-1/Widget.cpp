@@ -20,6 +20,7 @@ void Widget::onButtonClicked()
 
 void Widget::testSendEvent()
 {
+    //阻塞式事件发送，一般在栈上分配空间，需要自行进行释放空间
     QMouseEvent dbcEvt(QEvent::MouseButtonDblClick, QPoint(0, 0), Qt::LeftButton, Qt::NoButton, Qt::NoModifier);
 
     qDebug() << "Before sendEvent()";
@@ -31,6 +32,7 @@ void Widget::testSendEvent()
 
 void Widget::testPostEvent()
 {
+    //非阻塞式事件发送，必须在堆上产生事件对象，并且有事件处理后自动释放内存。
     QMouseEvent* dbcEvt = new QMouseEvent(QEvent::MouseButtonDblClick, QPoint(0, 0), Qt::LeftButton, Qt::NoButton, Qt::NoModifier);
 
     qDebug() << "Before postEvent()";
