@@ -13,10 +13,11 @@
 #include <QObjectList>
 #include <QMenu>
 #include <QToolBar>
-#include <QPrintDialog>
+#include <QMimeData>
 #include <QKeyEvent>
 #include <QApplication>
 #include <QDebug>
+#include <QPrintDialog>
 
 void MainWindow::showErrorMessage(QString message)
 {
@@ -63,7 +64,7 @@ QString MainWindow::showFileDialog(QFileDialog::AcceptMode mode, QString title)
 
     fd.setWindowTitle(title);
     fd.setAcceptMode(mode);
-    fd.setFilters(filters);
+    fd.setNameFilters(filters);
 
     if( mode == QFileDialog::AcceptOpen )
     {
@@ -76,7 +77,7 @@ QString MainWindow::showFileDialog(QFileDialog::AcceptMode mode, QString title)
 
         if( mode == QFileDialog::AcceptSave )
         {
-            QString postfix = map[fd.selectedFilter()];
+            QString postfix = map[fd.selectedNameFilter()];
 
             if( (postfix != "*") && !ret.endsWith(postfix) )
             {
@@ -365,7 +366,7 @@ void MainWindow::onFilePrint()
     {
         QPrinter* p = dlg.printer();
 
-        mainEditor.document()->print(p);
+        mainEditor.document()->print(reinterpret_cast<QPagedPaintDevice*>(p));
     }
 }
 
@@ -395,6 +396,7 @@ void MainWindow::onCursorPositionChanged()
 
 void MainWindow::onEditDelete()
 {
+    //模拟delete按键按下删除文本
     QKeyEvent keyPress(QEvent::KeyPress, Qt::Key_Delete, Qt::NoModifier);
     QKeyEvent keyRelease(QEvent::KeyRelease, Qt::Key_Delete, Qt::NoModifier);
 

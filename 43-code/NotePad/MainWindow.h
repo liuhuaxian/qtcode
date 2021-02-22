@@ -1,7 +1,7 @@
 #ifndef _MAINWINDOW_H_
 #define _MAINWINDOW_H_
 
-#include <QtGui/QMainWindow>
+#include <QMainWindow>
 #include <QKeySequence>
 #include <QMenuBar>
 #include <QToolBar>
@@ -61,6 +61,8 @@ private slots:
     void onFilePrint();
     void onFileExit();
     void onTextChanged();
+
+    //界面状态维护
     void onCopyAvailable(bool available);
     void onRedoAvailable(bool available);
     void onUndoAvailable(bool available);
