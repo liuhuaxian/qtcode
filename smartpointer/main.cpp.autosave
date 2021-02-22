@@ -35,6 +35,9 @@ int main()
     //scopedArrayPtr = &t2;
     delete scopedArrayPtr;
 
+    /***********************************/
+    
+    
     while (1) {
 
     }
