@@ -39,7 +39,7 @@ bool Widget::eventFilter(QObject* obj, QEvent* evt)
 
         m_edit.insert(se->data());
 
-        return false; //返回true则该事件停止传递给父组件
+        return true; //返回true则该事件停止传递给父组件
     }
 
     return QWidget::eventFilter(obj, evt);

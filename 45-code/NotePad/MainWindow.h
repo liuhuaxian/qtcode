@@ -68,6 +68,7 @@ private slots:
     void onRedoAvailable(bool available);
     void onUndoAvailable(bool available);
     void onCursorPositionChanged();
+    //查找对话框的槽函数
     void onEditFind();
     void onEditDelete();
 public:
