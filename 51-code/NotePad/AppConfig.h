@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QFont>
 
+//在主窗口的析构函数中产生该对象并保存状态到本地文件中。
 class AppConfig : public QObject
 {
     Q_OBJECT

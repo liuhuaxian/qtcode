@@ -55,7 +55,7 @@ private:
     QAction* findMenuBarAction(QString text);
     QAction* findToolBarAction(QString text);
 protected:
-    void closeEvent(QCloseEvent* e);
+    void closeEvent(QCloseEvent* e); //在关闭事件中保存窗口的相关状态到磁盘文件中去。
     void dragEnterEvent(QDragEnterEvent* e);
     void dropEvent(QDropEvent* e);
 private slots:

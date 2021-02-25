@@ -82,7 +82,7 @@ private slots:
     void onHelpAbout();
 public:
     static MainWindow* NewInstance();
-    QToolBar* toolBar();
+    QToolBar* toolBar(); //返回主窗口中的QToolBar类型的组件。
     ~MainWindow();
 };
 

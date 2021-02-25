@@ -43,6 +43,7 @@ bool MainWindow::construct()
     ret = ret && initStatusBar();
     ret = ret && initMainEditor();
 
+    //在主窗口的构造阶段，判断硬盘中是否存在状态配置文件，若存在则将其设置进当前主窗口中。
     if( config.isValid() )
     {
         mainEditor.setFont(config.editorFont());
@@ -697,6 +698,8 @@ QToolBar* MainWindow::toolBar()
     return ret;
 }
 
+
+//在析构函数的调用时机为，主窗口已经从窗口中消失，无法获取主窗口的位置信息和窗口的大小信息，在52单元中有解决，在关闭事件处理函数中，主窗口还没有消失。
 MainWindow::~MainWindow()
 {
     QFont font = mainEditor.font();
@@ -705,5 +708,5 @@ MainWindow::~MainWindow()
     bool sbVisible = (findMenuBarAction("Status Bar")->isChecked() && findToolBarAction("Status Bar")->isChecked());
     AppConfig config(font, isWrap, tbVisible, sbVisible);
 
-    config.store();
+    config.store(); //将配置文件保存到本地磁盘设备中。
 }

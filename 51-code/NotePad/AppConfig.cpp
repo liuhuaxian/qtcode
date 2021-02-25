@@ -17,6 +17,7 @@ AppConfig::AppConfig(QFont font, bool isWrap, bool tbVisible, bool sbVisible, QO
     m_isValid = true;
 }
 
+//读取配置文件信息，并保存。
 bool AppConfig::restore()
 {
     bool ret = true;
@@ -24,6 +25,7 @@ bool AppConfig::restore()
 
     if( file.open(QIODevice::ReadOnly) )
     {
+        //设置当前的qt版本，因为可能每个qt版本之间在实现二进制数据流时存在差异。
         QDataStream in(&file);
 
         in.setVersion(QDataStream::Qt_4_7);
@@ -43,6 +45,7 @@ bool AppConfig::restore()
     return ret;
 }
 
+//保存状态信息到磁盘文件中去。
 bool AppConfig::store()
 {
     bool ret = true;
@@ -52,6 +55,7 @@ bool AppConfig::store()
     {
         QDataStream out(&file);
 
+        //设置当前的qt版本，因为可能每个qt版本之间在实现二进制数据流时存在差异。
         out.setVersion(QDataStream::Qt_4_7);
 
         out << m_editorFont;
