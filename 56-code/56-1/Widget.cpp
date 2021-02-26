@@ -19,7 +19,7 @@ Widget::Widget(QWidget *parent)
 
 void Widget::onDirectoryLoaded(const QString& path)
 {
-    QModelIndex root = m_fsm.index(path);
+    QModelIndex root = m_fsm.index(path); //获取m_fsm模型的path路径代表的索引
     QByteArray array;
     QBuffer buffer(&array);
 
@@ -38,7 +38,7 @@ void Widget::onDirectoryLoaded(const QString& path)
 
         for(int i=0; i<m_fsm.rowCount(root); i++)
         {
-            QModelIndex ci = m_fsm.index(i, 0, root);
+            QModelIndex ci = m_fsm.index(i, 0, root);   //只遍历root代表的数据索引下的一级目录。
 
             out << ci.data().toString() << endl;
         }

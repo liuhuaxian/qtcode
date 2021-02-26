@@ -8,7 +8,7 @@ ScoreInfoModel::ScoreInfoModel(QObject* parent) : QObject(parent)
 
 bool ScoreInfoModel::add(ScoreInfo info)
 {
-    QStandardItem* root = m_model.invisibleRootItem();
+    QStandardItem* root = m_model.invisibleRootItem();//关键点
     QStandardItem* item0 = new QStandardItem();
     QStandardItem* item1 = new QStandardItem();
     QStandardItem* item2 = new QStandardItem();
