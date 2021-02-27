@@ -11,6 +11,8 @@ Widget::Widget(QWidget *parent) : QWidget(parent)
     m_view.setParent(this);
     m_view.move(10, 10);
     m_view.resize(345, 180);
+
+    //视图安装事件过滤器。
     m_view.installEventFilter(this);
 
     m_refreshBtn.setParent(this);
@@ -105,11 +107,12 @@ void Widget::onScoreBtnClicked()
 }
 
 //按菜单按钮或单击鼠标右键将导致发送事件QEvent::ContextMenu。
+//事件过滤器，需要对象进行安装事件过滤器，否则不会生效
 bool Widget::eventFilter(QObject* obj, QEvent* evt)
 {
     if( (obj == &m_view) && (evt->type() == QEvent::ContextMenu) )
     {
-        m_menu.exec(cursor().pos());
+        m_menu.exec(cursor().pos());//在当前位置显示便签
     }
 
     return QWidget::eventFilter(obj, evt);
