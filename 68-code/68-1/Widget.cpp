@@ -76,24 +76,26 @@ Qt::GlobalColor Widget::drawColor()
 
 void Widget::mousePressEvent(QMouseEvent *evt)
 {
-    m_current.type = drawType();
-    m_current.color = drawColor();
-    m_current.points.append(evt->pos());
+    m_current.type = drawType();                //获取设置的类型
+    m_current.color = drawColor();              //获取设置的颜色
+    m_current.points.append(evt->pos());        //记录鼠标的起点值
 }
 
 void Widget::mouseMoveEvent(QMouseEvent *evt)
 {
     append(evt->pos());
 
-    update();
+    update(); //更新widget的组件
 }
 
 void Widget::mouseReleaseEvent(QMouseEvent *evt)
 {
     append(evt->pos());
 
+    //保存当前绘画出来的图形的参数信息，避免在画下一条线的时候上一次绘画的图形消失。
     m_drawList.append(m_current);
 
+    //重置m_current参数
     m_current.type = NONE;
     m_current.color = Qt::white;
     m_current.points.clear();
@@ -103,6 +105,7 @@ void Widget::mouseReleaseEvent(QMouseEvent *evt)
 
 void Widget::append(QPoint p)
 {
+    //除了自由绘画外， m_current.points链表中的点的个数只有两个。
     if( m_current.type != NONE )
     {
         if( m_current.type == FREE )
@@ -113,10 +116,10 @@ void Widget::append(QPoint p)
         {
             if( m_current.points.count() == 2 )
             {
-                m_current.points.removeLast();
+                m_current.points.removeLast(); //移除链表中的第二个点
             }
 
-            m_current.points.append(p);
+            m_current.points.append(p);//将一个点添加到链表中。
         }
     }
 }
@@ -127,9 +130,10 @@ void Widget::paintEvent(QPaintEvent *)
 
     for(int i=0; i<m_drawList.count(); i++)
     {
-        draw(painter, m_drawList[i]);
+        draw(painter, m_drawList[i]); //绘制之前绘制过的图形
     }
 
+    //实时的绘制图形。
     draw(painter, m_current);
 }
 
