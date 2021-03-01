@@ -27,8 +27,8 @@ void Widget::paintEvent(QPaintEvent *)
     const QString text = "D.T.Software";
     QFont font("Comic Sans MS", 5 + (m_sizeFactor++) % 100);
     QFontMetrics metrics(font);
-    const int w = metrics.width(text);
-    const int h = metrics.height();
+    const int w = metrics.width(text);//获取该字体对应的宽
+    const int h = metrics.height();   //获取该字体对应的高
     QRect rect((width()-w)/2, (height()-h)/2, w, h);
 
     painter.begin(this);
