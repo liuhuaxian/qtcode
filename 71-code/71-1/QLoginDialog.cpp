@@ -137,6 +137,7 @@ void QLoginDialog::paintEvent(QPaintEvent *)
     for(int i=0; i<4; i++)
     {
         painter.setPen(m_colors[i]);
+
         painter.drawText(180 + 20 * i, 100, 20, 24, Qt::AlignCenter, QString(m_captcha[i]));
     }
 }
@@ -159,7 +160,7 @@ QString QLoginDialog::getCaptcha()
 
 Qt::GlobalColor* QLoginDialog::getColors()
 {
-    static Qt::GlobalColor colors[4]; //获取随机的颜色值
+    static Qt::GlobalColor colors[4];
 
     for(int i=0; i<4; i++)
     {
