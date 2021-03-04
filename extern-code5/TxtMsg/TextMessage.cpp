@@ -34,7 +34,7 @@ QString TextMessage::data()
 QByteArray TextMessage::serialize()
 {
     QByteArray ret;
-    QByteArray dba = m_data.toUtf8();
+    QByteArray dba = m_data.toUtf8(); //将数据解析为utf8的字节数据流。
     QString len = QString::asprintf("%X", dba.length());
 
     len.resize(4, ' ');

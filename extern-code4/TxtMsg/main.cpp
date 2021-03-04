@@ -11,8 +11,16 @@ int main(int argc, char *argv[])
 
     qDebug() << s;
 
+
     TxtMsgAssembler as;
     QSharedPointer<TextMessage> pt;
+
+#if 0
+    //模拟数据分两次到达。
+    pt = as.assemble(s.toStdString().c_str(), s.length()-1);
+    QString test('0');
+    pt = as.assemble(test.toStdString().c_str(),1);
+#endif
 
     pt = as.assemble(s.toStdString().c_str(), s.length());
 

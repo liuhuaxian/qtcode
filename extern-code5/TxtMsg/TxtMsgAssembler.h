@@ -10,13 +10,13 @@ class TxtMsgAssembler : public QObject
 {
     QQueue<char> m_queue;
     QString m_type;
-    int m_length;
+    int m_length;       //关键
     QByteArray m_data;
 
     void clear();
-    QByteArray fetch(int n);
+    QByteArray fetch(int n); //关键点
     bool makeTypeAndLength();
-    TextMessage* makeMessage();
+    TextMessage* makeMessage(); //关键点，需要将m_data转换成QString,进行组装
 public:
     TxtMsgAssembler(QObject* parent = NULL);
     void prepare(const char* data, int len);

@@ -33,7 +33,7 @@ QString TextMessage::data()
 
 QString TextMessage::serialize()
 {
-    QString len = QString::asprintf("%X", m_data.length());
+    QString len = QString::asprintf("%X", m_data.length()); //此处的长度只能代表字串长度，不等价与字串在内存占用的空间数。
 
     len.resize(4, ' ');
 

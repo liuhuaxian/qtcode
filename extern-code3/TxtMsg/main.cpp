@@ -2,17 +2,6 @@
 #include <QDebug>
 #include "TextMessage.h"
 
-class Test
-{
-public:
-    Test();
-    ~Test();
-public:
-    const double PI = 3.14;
-    int b = (int)this->PI;    //不是不允许这么赋值么？
-private:
-    int a = 1;  //?
-};
 
 int main(int argc, char *argv[])
 {

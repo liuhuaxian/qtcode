@@ -12,6 +12,7 @@ void TxtMsgAssembler::clear()
     m_data = "";
 }
 
+//因为此处是按照一个字符(8bit)解析为一个字串，所以此时的中文是无法按照此方法解析，因为中文不是一个字符(8bit)表示。
 QString TxtMsgAssembler::fetch(int n)
 {
     QString ret = "";
@@ -54,6 +55,7 @@ QSharedPointer<TextMessage> TxtMsgAssembler::assemble()
         ret = makeMessage();
     }
 
+    //不为空说明数据组装完成，清空本次的保存的数据。
     if( ret != NULL )
     {
         clear();
@@ -103,6 +105,7 @@ TextMessage* TxtMsgAssembler::makeMessage()
 
         m_data += fetch(n);
 
+        //数据全部接收完毕 则组装。
         if( m_length == m_data.length() )
         {
             ret = new TextMessage(m_type, m_data);

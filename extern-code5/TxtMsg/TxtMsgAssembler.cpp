@@ -77,7 +77,7 @@ bool TxtMsgAssembler::makeTypeAndLength()
     {
         QString len = "";
 
-        m_type = QString(fetch(4));
+        m_type = QString(fetch(4)); //使用utf8的编码方式，编码字节数组得到Qstring对象
 
         len = QString(fetch(4));
 
