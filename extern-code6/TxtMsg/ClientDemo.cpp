@@ -41,6 +41,7 @@ void ClientDemo::onBytesWritten(qint64 bytes)
     (void)bytes;
 }
 
+//此处会阻塞等待，链接成功。
 bool ClientDemo::connectTo(QString ip, int port)
 {
     m_client.connectToHost(ip, port);
@@ -54,6 +55,8 @@ qint64 ClientDemo::send(TextMessage& message)
     return m_client.write(ba.data(), ba.length());
 }
 
+
+//返回可以读出的数据的字节数。
 qint64 ClientDemo::available()
 {
     return m_client.bytesAvailable();

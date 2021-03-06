@@ -23,7 +23,7 @@ protected slots:
 public:
     ClientDemo(QObject* parent = NULL);
     bool connectTo(QString ip, int port);
-    qint64 send(TextMessage& message);
+    qint64 send(TextMessage& message); //发送的是字节序。
     qint64 available();
     void setHandler(TxtMsgHandler* handler);
     void close();

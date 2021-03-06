@@ -13,7 +13,7 @@ class ServerDemo : public QObject
     Q_OBJECT
 
     QTcpServer m_server;
-    QMap<QTcpSocket*, TxtMsgAssembler*> m_map;
+    QMap<QTcpSocket*, TxtMsgAssembler*> m_map; //为每个客户端分配一个消息装配器。
     TxtMsgHandler* m_handler;
 public:
     ServerDemo(QObject* parent = NULL);

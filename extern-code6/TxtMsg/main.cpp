@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     server.setHandler(&handler);
     server.start(8890);
 
-    client.setHandler(&handler);
+    //client.setHandler(&handler);
     client.connectTo("127.0.0.1", 8890);
     client.send(message);
 
