@@ -3,8 +3,9 @@
 
 ServerHandler::ServerHandler()
 {
-    #define MapToHandler(MSG) m_handlerMap.insert(#MSG, MSG##_Handler)
+    #define MapToHandler(MSG) m_handlerMap.insert(#MSG, &ServerHandler::MSG##_Handler)
 
+    //m_handlerMap.insert(QString("CONN"), &ServerHandler::CONN_Handler);
     MapToHandler(CONN);
     MapToHandler(DSCN);
     MapToHandler(LGIN);

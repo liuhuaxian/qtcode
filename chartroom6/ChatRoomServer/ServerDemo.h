@@ -13,6 +13,7 @@ class ServerDemo : public QObject
     Q_OBJECT
 
     QTcpServer m_server;
+    //每一个socket对应一个装配类对象，防止数据混乱
     QMap<QTcpSocket*, TxtMsgAssembler*> m_map;
     TxtMsgHandler* m_handler;
 public:

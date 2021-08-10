@@ -21,7 +21,7 @@ static bool ValidateUserID(QString id)
 
 void MainWin::initMember()
 {
-    #define MapToHandler(MSG) m_handlerMap.insert(#MSG, MSG##_Handler)
+    #define MapToHandler(MSG) m_handlerMap.insert(#MSG, &MainWin::MSG##_Handler)
 
     MapToHandler(CONN);
     MapToHandler(DSCN);
